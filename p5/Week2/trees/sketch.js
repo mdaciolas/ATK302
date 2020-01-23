@@ -26,7 +26,7 @@ function draw() {
   fill('#0c6b1d');
   arc(450, 150, 180, 180, PI, TWO_PI);
 
-fill(0);
-textSize(30);
-  text(mouseX + "," + mouseY, 50,50);
+// fill(0);
+// textSize(30);
+//   text(mouseX + "," + mouseY, 50,50);
 }
