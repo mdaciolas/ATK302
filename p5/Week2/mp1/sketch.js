@@ -69,7 +69,6 @@ line(436,677,460,665);
 fill(0,0,0);
 arc(286, 387, 100, 50, 50, PI + QUARTER_PI, CHORD);
 
-
 noStroke();
 text('Vibe Check',177,90);
 textSize(100);
@@ -86,6 +85,10 @@ triangle(470,377,470,436,594,365);
 
 fill(222, 212, 20);
 ellipse(23,78,200,200);
+
+
+
+
 }
 
 
