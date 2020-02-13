@@ -21,14 +21,17 @@ function draw() {
 
     case 2:
     background('green');
+    text("2nd part", 100, 100);
     break;
 
     case 3:
     background('yellow');
+    ("3rd part", 100, 100);
     break;
 
     case 4:
     background('orange');
+    text("finale", 100, 100);
     break;
 
   }
