@@ -15,7 +15,7 @@ function draw() {
     case 0:
     background(255, 87, 112);
     textSize(25);
-    text("what's the difference between snowmen and snow women?", 100, 100);
+    text("what concert costs just 45 cents?", 100, 100);
     timer++ ;
     if (timer > 200){
       myState = 1;
@@ -26,7 +26,7 @@ function draw() {
     case 1:
     background(111, 120, 237);
     textSize(25);
-    text("snowballs", 100, 100);
+    text("50 cent featuring nickleback", 100, 100);
     timer++ ;
     if (timer > 200){
       myState = 0;
