@@ -50,10 +50,19 @@ switch(myState){
   ellipse(width/2, height/1.5, 100,100);
   timer++;
   if (timer > 200){
-    myState = 0;
+    myState = 3;
     timer = 0;
   }
   break;
+
+  case 3:
+  fill('yellow');
+  ellipse(width/2, height/2 , 100, 100);
+  timer++;
+  if (timer > 200){
+    myState = 0;
+    timer = 0;
+  }
 
 }
 
