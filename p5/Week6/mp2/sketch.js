@@ -174,12 +174,10 @@ pop();
     myState= 0
     timer= 0
   }
-
-
     break;
 
-  }
-}
+  } //end of switch
+} //end of draw
 
 function mouseReleased() {
   myState = myState + 1;
