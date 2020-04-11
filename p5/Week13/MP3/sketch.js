@@ -1,15 +1,46 @@
 var cars = [];
 var frogPos ;
-var state = 0;
-var timer = maxTimer;
+var state = -1;
 var maxCars = 10;
 var maxTimer= 20 * 60;
+var timer = maxTimer;
+var Rexy;
+var Dino;
+var Park;
+var Run;
+var Music;
+var Gamemus;
+var Win;
+var Happy;
+var Loss;
+var Lost;
+var Nugget;
+var World;
+
+
+function preload(){
+    Rexy = loadFont('assets/rexy.ttf');
+    Run = loadFont('assets/run.otf');
+    Music= loadSound("assets/music.mp3");
+    Gamemus = loadSound("assets/gamemus.mp3");
+    Win = loadSound("assets/win.mp3");
+    Lost = loadSound("assets/lost.mp3");
+
+}
 
 function setup() {
   // put setup code here
   createCanvas(800,800);
   rectMode(CENTER);
   ellipseMode(CENTER);
+  imageMode(CENTER);
+  Dino = loadImage("assets/dino.png");
+  Park = loadImage("assets/park.jpg");
+  Happy = loadImage("assets/happy.png");
+  Loss = loadImage("assets/loss.png");
+  Nugget = loadImage("assets/nugget.png");
+  World = loadImage("assets/world.jpg");
+
 
 
 //spawn cars
@@ -23,28 +54,57 @@ frogPos = createVector(width/2, height-100);
 function draw() {
   // put drawing code here
   switch (state) {
+    case -1:
+    Music.loop();
+    state= 0;
+    break;
 
     case 0:
-    background('red');
-    text("welcome! Click to start!", 200, 200);
+    background('lightblue');
+    image(World, width/2, height/2, width, height);
+    textFont(Rexy);
+    textSize(100);
+    text("FEED THE REXY", 100, 300);
+    textSize(50);
+    text("click to start", 220, 380);
+    textSize(22);
+    textFont(Run);
+    fill('white');
+    text("feed rexy her chicken nuggets before she attacks", 5, 600);
+
     break;
 
     case 1:
+
+    //background('lightgreen');
     game();
     timer-- ;
     if(timer <= 0){
+      Gamemus.stop();
+      Lost.loop();
       state = 3; //they lost
     }
+
+
     break;
 
     case 2:
+
     background('green');
-    text("You Won!!!", 200, 200);
+    textSize(50);
+    textFont(Rexy);
+    fill('black');
+    text("You calmed the Rexy", 80, 200);
+    image(Happy, 400, 500, 400, 400);
     break;
 
     case 3:
-    background('blue');
-    text("You Lost!!!!", 200, 200);
+    //Gamemus.stop();
+    background('red');
+    textSize(50);
+    fill('black');
+    text("Rexy Got You", 200, 200);
+    image(Loss, 400, 500, 400, 400);
     break;
   }
 }
@@ -52,6 +112,8 @@ function draw() {
 function mouseReleased (){
   switch(state){
     case 0:
+    Music.stop();
+    Gamemus.loop();
     state = 1;
     break;
 
@@ -68,6 +130,9 @@ function mouseReleased (){
 }
 function resetGame(){
   //reset cars array
+  Win.stop();
+  Lost.stop();
+  Music.loop();
   cars = [];
   for (var i = 0; i < maxCars; i++) {
     cars.push(new Car());
@@ -79,8 +144,8 @@ function resetGame(){
 
 
 function game(){
-  background('lightblue');
-
+  //background('lightgreen');
+image(Park, width/2, height/2, width, height);
   for (var i = 0; i < cars.length; i++){
   cars[i].display();
   cars[i].drive();
@@ -92,17 +157,21 @@ if (cars[i].pos.dist(frogPos) < 40) {
 
 //if there are no more cars, go to win state
  if(cars.length == 0){
+   Gamemus.stop();
+  Win.loop();
    state = 2; //they won
+
  }
 
 
 //frog
-fill('white');
-ellipse(frogPos.x, frogPos.y, 60, 60);
+
+image(Dino, frogPos.x, frogPos.y, 100, 100);
 checkForKeys();
 
-fill('white');
-ellipse(10, 10, timer, 10);
+
+
+
 
 }
 
@@ -118,14 +187,14 @@ function Car() {
 //attributes
 this.pos = createVector(random(width), random(height));
 this.vel = createVector(random(-5,5),random(-5,5)) ;
-this.r = random(255);
-this.g = random(255);
-this.b = random(255);
+this.r = (138);
+this.g = (93);
+this.b = (3);
 
 //methods
 
 this.display = function(){
-  rect(this.pos.x,this.pos.y,100,100);
+  image(Nugget,this.pos.x,this.pos.y, 90, 90); //chicken nuggets
   fill(this.r, this.g, this.b);
 }
 
