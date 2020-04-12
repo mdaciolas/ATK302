@@ -4,7 +4,7 @@ var state = -1;
 var maxCars = 10;
 var maxTimer= 20 * 60;
 var timer = maxTimer;
-var Rexy;
+
 var Dino;
 var Park;
 var Run;
@@ -19,7 +19,7 @@ var World;
 
 
 function preload(){
-    Rexy = loadFont('assets/rexy.ttf');
+
     Run = loadFont('assets/run.otf');
     Music= loadSound("assets/music.mp3");
     Gamemus = loadSound("assets/gamemus.mp3");
@@ -62,8 +62,8 @@ function draw() {
     case 0:
     background('lightblue');
     image(World, width/2, height/2, width, height);
-    textFont(Run);
-    textSize(100);
+
+    textSize(50);
     text("FEED THE REXY", 100, 300);
     textSize(50);
     text("click to start", 220, 380);
