@@ -92,9 +92,9 @@ function draw() {
 
     background('green');
     textSize(50);
-    textFont(Rexy);
+    textFont(Run);
     fill('black');
-    text("You calmed the Rexy", 80, 200);
+    text("You calmed the Rexy", 60, 200);
     image(Happy, 400, 500, 400, 400);
     break;
 
