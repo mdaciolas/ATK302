@@ -62,7 +62,7 @@ function draw() {
     case 0:
     background('lightblue');
     image(World, width/2, height/2, width, height);
-    textFont(Rexy);
+    textFont(Run);
     textSize(100);
     text("FEED THE REXY", 100, 300);
     textSize(50);
